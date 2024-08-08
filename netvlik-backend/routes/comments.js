@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var commentController = require("./../controller/comment-controller");
+var commentController = require("../controller/comment-controller");
 
 // Get All Comment By FilmID
 router.get("/film/:film_id", function (req, res, next) {
@@ -71,3 +71,5 @@ router.delete("/delete/:id", function (req, res, next) {
     }
   );
 });
+
+module.exports = router;

@@ -51,3 +51,11 @@ var deleteComment = (id) =>
       resolve(result);
     });
   });
+
+module.exports = {
+  getCommentByFilmId,
+  getCommentById,
+  createComment,
+  updateComment,
+  deleteComment,
+};
