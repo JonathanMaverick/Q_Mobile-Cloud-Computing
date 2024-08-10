@@ -28,6 +28,17 @@ router.get("/", function (req, res, next) {
   );
 });
 
+router.get("/top", function (req, res, next) {
+  filmController.getTopFilms().then(
+    (result) => {
+      res.status(200).json(result);
+    },
+    (error) => {
+      res.status(500).json({ error: "Failed to retrieve films" });
+    }
+  );
+});
+
 // Get By ID
 router.get("/get/:id", function (req, res, next) {
   const filmId = req.params.id;
@@ -47,9 +58,15 @@ router.get("/get/:id", function (req, res, next) {
 
 //Create
 router.post("/create", upload.single("image"), function (req, res, next) {
-  const { title, description, genre } = req.body;
+  const { name, description, genre, rating } = req.body;
   filmController
-    .createFilm(title, description, genre, req.file.path.replace("public", ""))
+    .createFilm(
+      name,
+      description,
+      genre,
+      req.file.path.replace("public", ""),
+      rating
+    )
     .then(
       (result) => {
         res.status(201).json({ message: "Film created" });
@@ -62,16 +79,18 @@ router.post("/create", upload.single("image"), function (req, res, next) {
 
 //Update
 router.put("/update/:id", function (req, res, next) {
-  const { title, description, genre, image } = req.body;
+  const { name, description, genre, image, rating } = req.body;
   const filmId = req.params.id;
-  filmController.updateFilm(title, description, genre, image, filmId).then(
-    (result) => {
-      res.status(200).json({ message: "Film updated" });
-    },
-    (error) => {
-      res.status(500).json({ error });
-    }
-  );
+  filmController
+    .updateFilm(name, description, genre, image, rating, filmId)
+    .then(
+      (result) => {
+        res.status(200).json({ message: "Film updated" });
+      },
+      (error) => {
+        res.status(500).json({ error });
+      }
+    );
 });
 
 //Delete

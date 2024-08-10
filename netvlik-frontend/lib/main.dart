@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:netvlik/login.dart';
-import 'package:netvlik/user_provider.dart';
+import 'package:netvlik/page/login.dart';
+import 'package:netvlik/utils/user_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:netvlik/home.dart';
-import 'package:netvlik/film.dart';
-import 'package:netvlik/login.dart';
-import 'package:netvlik/user_provider.dart';
+import 'package:netvlik/page/home_page.dart';
+import 'package:netvlik/page/film_page.dart';
+import 'package:netvlik/page/login.dart';
+import 'package:netvlik/utils/user_provider.dart';
 import 'package:provider/provider.dart';
 
 class Template extends StatefulWidget {
@@ -24,7 +24,7 @@ class _TemplateState extends State<Template> {
     );
   }
 
-  final List<Widget> _pages = [const Home(), const Film()];
+  final List<Widget> _pages = [const HomePage(), const FilmPage()];
 
   final List<String> _titles = ['Home', 'Film'];
 

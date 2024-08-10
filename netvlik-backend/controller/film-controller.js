@@ -8,6 +8,17 @@ var getFilms = () =>
     });
   });
 
+var getTopFilms = () =>
+  new Promise((resolve, reject) => {
+    db.query(
+      "SELECT * FROM films ORDER BY rating DESC LIMIT 5",
+      (err, result) => {
+        if (!!err) reject(err);
+        resolve(result);
+      }
+    );
+  });
+
 var getFilmsById = (id) =>
   new Promise((resolve, reject) => {
     db.query("SELECT * FROM films WHERE id = ?", [id], (err, result) => {
@@ -16,11 +27,11 @@ var getFilmsById = (id) =>
     });
   });
 
-var createFilm = (title, description, genre, image) =>
+var createFilm = (name, description, genre, image, rating) =>
   new Promise((resolve, reject) => {
     db.query(
-      "INSERT INTO films (title, description, genre, image) VALUES (?, ?, ?, ?)",
-      [title, description, genre, image],
+      "INSERT INTO films (name, description, genre, image, rating) VALUES (?, ?, ?, ?, ?)",
+      [name, description, genre, image, rating],
       (err, result) => {
         if (!!err) reject(err);
         resolve(result);
@@ -28,11 +39,11 @@ var createFilm = (title, description, genre, image) =>
     );
   });
 
-var updateFilm = (title, description, genre, image, id) =>
+var updateFilm = (title, description, genre, image, rating, id) =>
   new Promise((resolve, reject) => {
     db.query(
-      "UPDATE films SET title = ?, description = ?, genre = ?, image = ? WHERE id = ?",
-      [title, description, genre, image, id],
+      "UPDATE films SET name = ?, description = ?, genre = ?, image = ?, rating = ? WHERE id = ?",
+      [title, description, genre, image, rating, id],
       (err, result) => {
         if (!!err) reject(err);
         resolve(result);
@@ -51,6 +62,7 @@ var deleteFilm = (id) =>
 module.exports = {
   getFilms,
   getFilmsById,
+  getTopFilms,
   createFilm,
   updateFilm,
   deleteFilm,

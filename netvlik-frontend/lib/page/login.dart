@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:netvlik/config.dart';
-import 'package:netvlik/template.dart';
-import 'package:netvlik/user_provider.dart';
+import 'package:netvlik/utils/config.dart';
+import 'package:netvlik/template/template.dart';
+import 'package:netvlik/utils/user_provider.dart';
 import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
