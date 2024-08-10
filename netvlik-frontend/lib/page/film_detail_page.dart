@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:netvlik/Model/film.dart';
+import 'package:netvlik/page/detail/description.dart';
+import 'package:netvlik/page/detail/review.dart';
 
 class FilmDetailPage extends StatelessWidget {
   final Film film;
@@ -7,37 +9,28 @@ class FilmDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(film.name),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Image.network(film.imageUrl),
-            const SizedBox(height: 16),
-            Text(
-              film.name,
-              style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
+    return DefaultTabController(
+        length: 2,
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text(film.name),
+            bottom: const TabBar(tabs: [
+              Tab(
+                icon: Icon(Icons.description),
+                text: 'Description',
               ),
-            ),
-            const SizedBox(height: 8),
-            Text(film.description),
-            const SizedBox(height: 16),
-            Text(
-              'Rating: ${film.rating}',
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
+              Tab(
+                icon: Icon(Icons.reviews),
+                text: 'Review',
               ),
-            ),
-          ],
-        ),
-      ),
-    );
+            ]),
+          ),
+          body: TabBarView(
+            children: [
+              DescriptionDetail(film: film),
+              ReviewDetail(film: film),
+            ],
+          ),
+        ));
   }
 }

@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:netvlik/Model/film.dart';
 import 'package:netvlik/Service/film_service.dart';
 import 'package:netvlik/utils/user_provider.dart';
@@ -56,16 +57,19 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(height: 10),
               Align(
                 alignment: Alignment.centerLeft,
-                child: Text(
-                  'Hello ${userProvider.username}!',
-                  style: const TextStyle(fontSize: 16),
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Text(
+                    'Hello ${userProvider.username}!',
+                    style: const TextStyle(fontSize: 18),
+                  ),
                 ),
               ),
               const SizedBox(height: 12),
               CarouselSlider(
                   items: _films
                       .map((film) => Container(
-                            margin: const EdgeInsets.all(5.0),
+                            margin: const EdgeInsets.all(2.0),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
@@ -103,26 +107,29 @@ class _HomePageState extends State<HomePage> {
                         const Duration(milliseconds: 800),
                     viewportFraction: 0.33,
                   )),
-              const SizedBox(
-                  height: 2), // Space between carousel and About Us section
-              const Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'About Us',
-                  style: TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.w200,
+              const Padding(
+                padding: EdgeInsets.all(4.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'About Us',
+                    style: TextStyle(
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.w200,
+                    ),
                   ),
                 ),
               ),
-              const SizedBox(height: 10),
-              const Text(
-                  'Netvlik is a leading global streaming service, founded in 1997 by Reed Hastings and Marc Randolph. Initially a DVD rental service, Netvlik transitioned to online streaming in 2007. Today, it offers a vast library of films, TV shows, documentaries, and original content known as Netvlik Originals. Available in over 190 countries, Netvlik has millions of subscribers worldwide, transforming the way people consume entertainment by offering personalized viewing experiences through advanced recommendation algorithms.',
-                  style: TextStyle(
-                    fontSize: 12.0,
-                    color: Colors.grey,
-                  ),
-                  textAlign: TextAlign.left),
+              const Padding(
+                padding: EdgeInsets.fromLTRB(4.0, 0.0, 4.0, 0.0),
+                child: Text(
+                    'Netvlik is a leading global streaming service, founded in 1997 by Reed Hastings and Marc Randolph. Initially a DVD rental service, Netvlik transitioned to online streaming in 2007. Today, it offers a vast library of films, TV shows, documentaries, and original content known as Netvlik Originals. Available in over 190 countries, Netvlik has millions of subscribers worldwide, transforming the way people consume entertainment by offering personalized viewing experiences through advanced recommendation algorithms.',
+                    style: TextStyle(
+                      fontSize: 12.0,
+                      color: Colors.grey,
+                    ),
+                    textAlign: TextAlign.left),
+              )
             ],
           ),
         ),

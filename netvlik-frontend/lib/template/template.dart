@@ -25,7 +25,6 @@ class _TemplateState extends State<Template> {
   }
 
   final List<Widget> _pages = [const HomePage(), const FilmPage()];
-
   final List<String> _titles = ['Home', 'Film'];
 
   @override

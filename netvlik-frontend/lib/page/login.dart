@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
         if (data['token'] != null) {
           if (context.mounted) {
             Provider.of<UserProvider>(context, listen: false)
-                .setUsername(username);
+                .setUser(username, data['id']);
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(builder: (context) => const Template()),
@@ -69,6 +69,26 @@ class _LoginPageState extends State<LoginPage> {
   Future<void> _login() async {
     final username = _usernameController.text;
     final password = _passwordController.text;
+
+    if (username.isEmpty || password.isEmpty) {
+      _showErrorSnackbar(context, 'Please enter username and password');
+      return;
+    }
+
+    if (username.length < 4 || password.length < 4) {
+      _showErrorSnackbar(
+          context, 'Username and password must be at least 4 characters');
+      return;
+    }
+
+    final disallowedCharacters = RegExp(r'[^\w\s]');
+
+    if (disallowedCharacters.hasMatch(username) ||
+        disallowedCharacters.hasMatch(password)) {
+      _showErrorSnackbar(context,
+          'Username and password cannot contain special characters or spaces');
+      return;
+    }
 
     await login(context, username, password);
     _isLoading = false;

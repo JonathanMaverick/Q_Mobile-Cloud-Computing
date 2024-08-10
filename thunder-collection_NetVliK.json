@@ -1,0 +1,167 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "NetVliK",
+    "collectionId": "ba14472f-dcfe-400f-ba37-22bbd673ea97",
+    "dateExported": "2024-08-10T16:24:25.894Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "3ab715d9-14d5-4960-8e30-711593ba7776",
+            "colId": "ba14472f-dcfe-400f-ba37-22bbd673ea97",
+            "containerId": "",
+            "name": "get-all-films",
+            "url": "{{BASE_API_URL}}/films",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-07-26T05:17:51.151Z",
+            "modified": "2024-08-09T09:12:33.205Z",
+            "headers": []
+        },
+        {
+            "_id": "f89b2400-08b6-4337-8916-bd838e9f7b23",
+            "colId": "ba14472f-dcfe-400f-ba37-22bbd673ea97",
+            "containerId": "",
+            "name": "get-films-by-id",
+            "url": "{{BASE_API_URL}}/films/get/1",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-07-26T05:19:22.095Z",
+            "modified": "2024-07-26T05:19:39.791Z",
+            "headers": []
+        },
+        {
+            "_id": "e9620c33-4c6e-41b8-a971-0d6157dc249d",
+            "colId": "ba14472f-dcfe-400f-ba37-22bbd673ea97",
+            "containerId": "",
+            "name": "create-films",
+            "url": "{{BASE_API_URL}}/films/create",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-07-26T05:19:59.053Z",
+            "modified": "2024-08-10T08:55:52.188Z",
+            "headers": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Itaewon Class"
+                    },
+                    {
+                        "name": "description",
+                        "value": "\"Itaewon Class\" is a Korean drama that follows a young man's journey to build a successful restaurant and seek justice after facing numerous challenges and injustices."
+                    },
+                    {
+                        "name": "genre",
+                        "value": "Drama"
+                    },
+                    {
+                        "name": "rating",
+                        "value": "9.2"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "image",
+                        "value": "/Users/jonathanmaverick/Downloads/itaewonclass.jpg"
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "c2e74435-fd9c-4139-a23a-4bd26e6d6969",
+            "colId": "ba14472f-dcfe-400f-ba37-22bbd673ea97",
+            "containerId": "",
+            "name": "register",
+            "url": "{{BASE_API_URL}}/users/register",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-07-27T05:12:18.922Z",
+            "modified": "2024-08-10T13:41:16.265Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\" : \"emha\",\n  \"password\" : \"emha\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "49c3f033-f717-4556-ac4a-fcceca32b6e7",
+            "colId": "ba14472f-dcfe-400f-ba37-22bbd673ea97",
+            "containerId": "",
+            "name": "login",
+            "url": "{{BASE_API_URL}}/users/login",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2024-07-27T07:13:30.831Z",
+            "modified": "2024-08-08T07:37:34.124Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\" : \"veka\", \n  \"password\" : \"veka\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "ac95fcc3-7894-45b0-a845-27a70950c45b",
+            "colId": "ba14472f-dcfe-400f-ba37-22bbd673ea97",
+            "containerId": "",
+            "name": "get-top-films",
+            "url": "{{BASE_API_URL}}/films/top",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2024-08-10T05:37:38.838Z",
+            "modified": "2024-08-10T05:38:05.614Z",
+            "headers": []
+        },
+        {
+            "_id": "bd2fda62-2cbf-4f04-9fed-f47e25d93839",
+            "colId": "ba14472f-dcfe-400f-ba37-22bbd673ea97",
+            "containerId": "",
+            "name": "get-films-comment",
+            "url": "{{BASE_API_URL}}/comments/film/12",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2024-08-10T12:19:50.344Z",
+            "modified": "2024-08-10T12:28:37.656Z",
+            "headers": []
+        },
+        {
+            "_id": "97504bc5-3454-4d9c-8b80-e1bfa5a96a7a",
+            "colId": "ba14472f-dcfe-400f-ba37-22bbd673ea97",
+            "containerId": "",
+            "name": "create-comment",
+            "url": "{{BASE_API_URL}}/comments/create",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2024-08-10T12:21:12.261Z",
+            "modified": "2024-08-10T12:25:59.983Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"user_id\": 1,\n  \"film_id\": 12,\n  \"comment\" : \"Very Good Film Recommended\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "4ceb09ff-6fc8-4d50-8760-3e6abdd5a2e7",
+            "colId": "ba14472f-dcfe-400f-ba37-22bbd673ea97",
+            "containerId": "",
+            "name": "update-comment",
+            "url": "{{BASE_API_URL}}/comments/update/1",
+            "method": "PUT",
+            "sortNum": 100000,
+            "created": "2024-08-10T14:32:15.947Z",
+            "modified": "2024-08-10T14:32:59.189Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"user_id\": 1,\n  \"film_id\": 12,\n  \"comment\" : \"Not Very Good Film Recommended\"\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "X2-hxlkOrYco-Xo3JLE46iI3_CG_toLkABu9UczfyOrReTjBh84UjMc0ZRDV9MQLL1wx88SIx-JQTet-BwY-Lw"
+}

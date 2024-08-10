@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 void main() {
   runApp(
     ChangeNotifierProvider(
-        create: (context) => UserProvider(''), child: const MainApp()),
+        create: (context) => UserProvider('', null), child: const MainApp()),
   );
 }
 

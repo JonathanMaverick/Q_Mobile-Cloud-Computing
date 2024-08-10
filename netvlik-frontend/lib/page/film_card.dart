@@ -23,7 +23,7 @@ class FilmCard extends StatelessWidget {
           borderRadius: BorderRadius.zero,
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.2),
+              color: const Color.fromARGB(255, 149, 149, 149).withOpacity(0.2),
               spreadRadius: 1,
               blurRadius: 4,
               offset: const Offset(0, 3),
@@ -58,7 +58,7 @@ class FilmCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 4.0),
               child: Text(
-                film.rating,
+                'Rating: ${film.rating}',
                 style: const TextStyle(color: Colors.grey, fontSize: 10),
               ),
             ),
